@@ -10,6 +10,10 @@
     <label for="">Nombre</label>
     <input type="text" name="name_trainer" class"form-control">
     </div>
+    <div class="form-group">
+        <label for="">Descripcion del entrenador </label>
+        <input type="text" name="description_trainer" class"form-control">
+        </div>
 
     <div class="form-group">
         <label for="">Avatar</label>
