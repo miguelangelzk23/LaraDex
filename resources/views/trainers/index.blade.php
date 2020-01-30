@@ -13,7 +13,7 @@
     <div class="card-body">
       <h5 class="card-title">{{$trainer->nombre}}</h5>
       <p class="card-text">{{$trainer->descripcion}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="/trainers/{{$trainer->slug}}" class="btn btn-primary">Ver mas </a>
     </div>
   </div>
 </div>
