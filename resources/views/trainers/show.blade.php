@@ -3,8 +3,7 @@
 @section('title', ' Trainer')
 
 @section('content')
-     
-
+   @include('common.succes')
 
 
 <img style="height: 300px;width: 300px;background-color: #EFEFEF;margin: 20px" class="card-img-top rounded-circle mx-auto d-block" src="/images/{{$trainer->avatar}}">

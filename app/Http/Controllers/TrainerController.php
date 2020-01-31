@@ -104,7 +104,7 @@ class TrainerController extends Controller
         $trainer->nombre = $request->input('name_trainer');
        $trainer->descripcion = $request->input('description_trainer');
         $trainer->save();
-        return redirect()->route('trainers.show',[$trainer]);
+        return redirect()->route('trainers.show',[$trainer])->with('status', 'Entrenador actualizado correctamente');
 
         
     }

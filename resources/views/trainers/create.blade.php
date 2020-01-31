@@ -6,14 +6,7 @@
      
 <form  class="form-group" method="POST" action="/trainers" enctype="multipart/form-data">
     @csrf
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul> @foreach ($errors->all() as $error )
-            <li>{{$error}}</li>
-        @endforeach</ul>
-    </div>
-       
-    @endif
+   @include('common.error')
     <div class="form-group">
         <label for="">Nombre</label>
         <input type="text" name="name_trainer" class"form-control" value="">
