@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Trainer;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTrainerRequest;
 
 class TrainerController extends Controller
 {
@@ -34,12 +35,11 @@ class TrainerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTrainerRequest $request)
     {
-       $validatedData = $request->validate([
-           'name_trainer' => 'required|max:10',
-           'avatar_trainer' => 'required'
-        ]);
+       
+          
+        
 
         if($request->hasFile('avatar_trainer'))
         {
