@@ -14,5 +14,10 @@
 <p>{{$trainer->descripcion}}</p>
 <p></p>
 <a href="/trainers/{{$trainer->slug}}/edit" class="btn btn-primary">Editar </a>
+<form action="/trainers/{{$trainer->slug}}" method="POST">
+    @method('DELETE')
+    @csrf
+    <button class="btn btn-danger" type="submit" >Eliminar</button>
+</form>
 </div>
 @endsection
