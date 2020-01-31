@@ -54,7 +54,8 @@ class TrainerController extends Controller
        $trainer->descripcion = $request->input('description_trainer');
        $trainer->slug = $request->input('name_trainer');
         $trainer->save();
-        return 'saved';
+        return redirect()->route('trainers.index');
+       // return 'saved';
        // return $request->input('name_trainer');
        //return $request->all();
     }
@@ -103,7 +104,7 @@ class TrainerController extends Controller
         $trainer->nombre = $request->input('name_trainer');
        $trainer->descripcion = $request->input('description_trainer');
         $trainer->save();
-        return 'saved';
+        return redirect()->route('trainers.show',[$trainer]);
 
         
     }
@@ -119,6 +120,6 @@ class TrainerController extends Controller
         $file_path = public_path().'/images/'.$trainer->avatar;
         \File::delete($file_path);
         $trainer->delete();
-        return 'deleted';
+        return redirect()->route('trainers.index');
     }
 }
