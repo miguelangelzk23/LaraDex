@@ -47,6 +47,7 @@ class TrainerController extends Controller
        $trainer->nombre = $request->input('name_trainer');
        $trainer->avatar = $name;
        $trainer->descripcion = $request->input('description_trainer');
+       $trainer->slug = $request->input('name_trainer');
         $trainer->save();
         return 'saved';
        // return $request->input('name_trainer');
@@ -72,9 +73,9 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Trainer $trainer)
     {
-        //
+      return view('trainers.edit',compact('trainer'));
     }
 
     /**
@@ -84,9 +85,22 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $trainer = Trainer::where('slug', '=',$slug)->firstOrfail();
+        if($request->hasFile('avatar_trainer'))
+        {
+            $file = $request->file('avatar_trainer');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+           $trainer->avatar= $name;
+        }
+        $trainer->nombre = $request->input('name_trainer');
+       $trainer->descripcion = $request->input('description_trainer');
+        $trainer->save();
+        return 'saved';
+
+        
     }
 
     /**
